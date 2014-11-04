@@ -1,0 +1,26 @@
+<?php
+$title = 'Tiny Urls';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('url', array('action'=>'add'));?>">Add new url</a>
+</p>
+ 
+ 
+<table class="table">
+<tr>
+    <th>Url</th>
+    <th>Tiny</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($tinyurls as $tinyurl) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($tinyurl->real_site);?></td>
+    <td><?php echo $this->escapeHtml($tinyurl->tiny);?></td>
+    <td>
+        <a href="<?php echo $this->url('url', array('action'=>'view', 'tiny'=>$tinyurl->tiny));?>" target="_blank">Перейти</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
